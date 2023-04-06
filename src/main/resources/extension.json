@@ -1,0 +1,5 @@
+{
+  "entrypoint": "com.github.lordtgm.minestom.TpsFixExtension",
+  "name": "TpsFixExtension",
+  "version": "1.0.0"
+}

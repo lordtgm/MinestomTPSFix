@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+}
+
+sourceCompatibility = 17
+
+group 'com.github.lordtgm'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+dependencies {
+    compileOnly 'com.github.Minestom.Minestom:Minestom:-SNAPSHOT'
+    testImplementation 'com.github.Minestom.Minestom:Minestom:-SNAPSHOT'
+    implementation group: 'net.java.dev.jna', name: 'jna', version: '5.13.0'
+}
+
