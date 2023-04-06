@@ -4,12 +4,13 @@ import com.sun.jna.Native;
 
 /**
  * A Windows interrupt timer manager class.
+ * This class must NOT be used on operating systems other than Windows.
  */
 public class TimerManager {
-    private Winmm winmm = Native.load("winmm", Winmm.class);
+    private final Winmm winmm;
 
     public TimerManager() {
-
+        this.winmm = Native.load("winmm", Winmm.class);
     }
     /**
      * Sets a minimum timer resolution (maximum delay between interrupts).

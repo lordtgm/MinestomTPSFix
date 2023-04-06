@@ -4,11 +4,12 @@ import com.github.lordtgm.mtf.TimerManager;
 import net.minestom.server.extensions.Extension;
 
 /**
- * A Minestom extension class which handles the timer resolution
+ * A Minestom extension class which handles the timer resolution.
+ * Safe to use with all operating systems.
  */
 public class TpsFixExtension extends Extension {
-    private TimerManager timerManager;
-    private int resolution;
+    private final TimerManager timerManager;
+    private final int resolution;
 
     /**
      * Constructor used by Minestom.
@@ -22,10 +23,13 @@ public class TpsFixExtension extends Extension {
      * @param resolution Custom resolution to set. Default to 10.
      */
     public TpsFixExtension(int resolution) {
-
-        this.timerManager = new TimerManager();
-        this.resolution = resolution;
-
+        if (!isWindows()) {
+            this.timerManager = null;
+            this.resolution = 0;
+        } else {
+            this.timerManager = new TimerManager();
+            this.resolution = resolution;
+        }
     }
 
     /**
@@ -33,14 +37,21 @@ public class TpsFixExtension extends Extension {
      * Called by Minestom.
      */
     public void initialize() {
-        this.timerManager.setTimerResolution(10);
+        if (!isWindows()) return;
+        this.timerManager.setTimerResolution(resolution);
     }
     /**
      * Terminates the extension and unsets the timer resolution.
      * Called by Minestom.
      */
     public void terminate() {
-        this.timerManager.unsetTimerResolution(10);
+        if (!isWindows()) return;
+        this.timerManager.unsetTimerResolution(resolution);
     }
+
+    public static boolean isWindows() {
+        return System.getProperty("os.name").toLowerCase().contains("win");
+    }
+
 }
 

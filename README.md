@@ -12,7 +12,6 @@ This extension fixes low tps on Windows machines.
 ## Usage
 Just build the .jar file or [download from releases](https://github.com/lordtgm/MinestomTPSFix/releases) and throw it into the extensions folder in your server root folder.
 
-This is **only for Windows systems** and shouldn't be used on Linux/MacOS machines, as it will most likely throw errors.
 
 ## How it works
 Minecraft runs at a max rate of 20 ticks per second, or one tick every 50 ms (1000÷20=50). (Ticks will take longer if the server is overloaded). If the tick takes less than 50 ms to process (which is very likely), Minestom will sleep for the rest of the 50 ms, so it doesn't go over 20 tps.
@@ -28,4 +27,4 @@ The second one is increasing timer resolution might result in higher power usage
 
 ## TODO
 
-- disable the extension if the os is Linux, so you don't need to remove the extension
+
