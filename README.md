@@ -10,7 +10,7 @@ This extension fixes low tps on Windows machines.
 [TODO](#todo)
 
 ## Usage
-Just build the .jar file or [download from releases](https://github.com/lordtgm/MinestomTPSFix/releases) and throw it into the extensions folder in your server root folder.
+Just build the .jar file or [download from releases](https://github.com/lordtgm/MinestomTPSFix/releases/latest/) and throw it into the extensions folder in your server root folder.
 
 
 ## How it works
